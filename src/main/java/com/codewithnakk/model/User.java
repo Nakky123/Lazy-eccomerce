@@ -30,7 +30,6 @@ public class User {
     private List<Address> address = new ArrayList<>();
 
     @Embedded
-    @ElementCollection
     @CollectionTable(name ="payment_information" , joinColumns = @JoinColumn(name = "user_id"))
     private List<Paymentinformation> paymentInformations = new ArrayList<>();
 
@@ -44,7 +43,7 @@ public class User {
     private LocalDateTime createdAt;
 
 
-    public User(Long id, String firstName, String lastName, String password, String email, String role, String mobile, List<Address> address, List<PaymentInformation> paymentInformations, List<Rating> rating, List<Review> reviews, LocalDateTime createdAt) {
+    public User(Long id, String firstName, String lastName, String password, String email, String role, String mobile, List<Address> address, List<Paymentinformation> paymentInformations, List<Rating> rating, List<Review> reviews, LocalDateTime createdAt) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -123,11 +122,11 @@ public class User {
         this.address = address;
     }
 
-    public List<PaymentInformation> getPaymentInformations() {
+    public List<Paymentinformation> getPaymentInformations() {
         return paymentInformations;
     }
 
-    public void setPaymentInformations(List<PaymentInformation> paymentInformations) {
+    public void setPaymentInformations(List<Paymentinformation> paymentInformations) {
         this.paymentInformations = paymentInformations;
     }
 
